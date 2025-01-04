@@ -101,3 +101,44 @@ else:
     print('Failed to retrieve the webpage. Status code:', response.status_code)
 
 ```
+
+---
+
+## 5. Database
+
+### 1. Import sqlite3
+
+```python
+import sqlite3
+```
+
+### 2. Create Database
+
+```python
+conn = sqlite3.connect('data.db')
+cursor = conn.cursor()
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS data (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        price FLOAT
+    )''')
+```
+
+### 3. Insert Data
+
+```python
+cursor.execute('''
+            INSERT INTO data (name, price)
+            VALUES (?, ?)''',
+            (name, price))
+    conn.commit()
+conn.close()
+```
+
+### 4. Drop Database
+
+```python
+cursor.execute("DROP TABLE IF EXISTS data")
+conn.commit()
+```
