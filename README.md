@@ -63,6 +63,7 @@ options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 options.add_argument("--disable-search-engine-choice-screen")
 options.add_experimental_option("detach", True)
+# options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 
 
