@@ -21,5 +21,5 @@ data = response.json()
 results = data.get("results", [])
 
 
-with open(f'data/{params["page"]}.txt', 'w') as file:
+with open(f'Networking/data/{params["page"]}.txt', 'w') as file:
     file.write(response.text)

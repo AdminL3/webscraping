@@ -2,7 +2,7 @@ import json
 import os
 import sqlite3
 
-conn = sqlite3.connect('data.db')
+conn = sqlite3.connect('Networking/data.db')
 cursor = conn.cursor()
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS data (
@@ -11,14 +11,19 @@ cursor.execute('''
         price FLOAT
     )''')
 
-for i in os.listdir('data'):
-    with open(f'data/{i}', 'r') as file:
+for i in os.listdir('Networking/data'):
+    with open(f'Networking/data/{i}', 'r') as file:
         data = json.load(file)
 
     results = data.get("results", [])
 
     for result in results:
-        name = json.dumps(result["brand"])
+        try:
+            name = json.dumps(result["brand"])
+        except:
+            print(result)
+            print("Brand not found")
+            pr
         cursor.execute('''
             INSERT INTO data (name, price)
             VALUES (?, ?)''',
