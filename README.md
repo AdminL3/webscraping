@@ -150,3 +150,16 @@ conn.commit()
 ```bash
 pip install playwright
 ```
+
+### 2. Run Playwright
+
+```python
+def run(playwright: Playwright):
+    chrome = playwright.chromium
+    browser = chrome.launch(headless=False)
+    page = browser.new_page()
+    # code here
+
+with sync_playwright() as p:
+    run(p)
+```
