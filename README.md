@@ -143,6 +143,8 @@ cursor.execute("DROP TABLE IF EXISTS data")
 conn.commit()
 ```
 
+---
+
 ## Playwright
 
 ### 1. Install Playwright
@@ -162,4 +164,41 @@ def run(playwright: Playwright):
 
 with sync_playwright() as p:
     run(p)
+```
+
+---
+
+## Playwright Codegen
+
+### 1. Install Playwright Codegen
+
+```bash
+pip install playwright
+```
+
+### 2. Run Playwright Codegen
+
+```bash
+playwright codegen https://example.com
+```
+
+### 3. Copy from Codegen
+
+Base Structure
+
+```python
+from playwright.sync_api import Playwright, sync_playwright, expect
+
+def run(playwright: Playwright) -> None:
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page = context.new_page()
+
+    # Code here
+
+    browser.close()
+
+
+with sync_playwright() as playwright:
+    run(playwright)
 ```
