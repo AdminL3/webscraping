@@ -142,3 +142,11 @@ conn.close()
 cursor.execute("DROP TABLE IF EXISTS data")
 conn.commit()
 ```
+
+## Playwright
+
+### 1. Install Playwright
+
+```bash
+pip install playwright
+```
