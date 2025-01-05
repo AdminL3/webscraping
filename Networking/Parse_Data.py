@@ -23,7 +23,6 @@ for i in os.listdir('Networking/data'):
         except:
             print(result)
             print("Brand not found")
-            pr
         cursor.execute('''
             INSERT INTO data (name, price)
             VALUES (?, ?)''',

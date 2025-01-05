@@ -8,5 +8,5 @@ base_url = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}"
 params = {key: value[0] for key, value in parse_qs(parsed_url.query).items()}
 
 output = f'base_url="{base_url}"\nparams={str(params).replace(", ", ",\n")}'
-with open('url.txt', 'w') as file:
+with open('Networking/url.txt', 'w') as file:
     file.write(output)
